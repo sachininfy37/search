@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="Search">Search</label>
+    <input id="searchInput">
+    <button onclick="searchByUsername()">Search</button>
+
+    
+    <script>
+        // json object
+        var data = [{
+            name: 'sachin',
+            age: 25,
+            location: 'Bangalore',
+            company: 'Infosys'
+        },{
+            name: 'sachin kr.',
+            age: 25,
+            location: 'Bangalore',
+            company: 'Infosys'
+        }, {
+            name: 'yadav sachin',
+            age: 21,
+            location: 'Orisa',
+            company: 'IBM'
+        }, {
+            name: 'mohan',
+            age: 22,
+            location: 'Hydrabad',
+            company: 'HP'
+        }];
+
+        function clear() {
+            var ele = document.getElementById('user-list');
+            if (ele) {
+                ele.remove();
+            }       
+        }
+
+        function renderTable(data) {  
+            clear();       
+            var ele = document.createElement("ol");
+            ele.setAttribute('id', 'user-list'); 
+            for (var item of data) {            
+                var li = document.createElement('li'); 
+                li.append(item.name + " " + item.age + " " + item.location + " " + item.company);
+                ele.appendChild(li);
+            }
+            document.body.append(ele);
+        }
+
+        
+        function searchByUsername(name){            
+            var input = document.getElementById("searchInput");
+            var searchText = input.value;
+            var filteredData = [];
+            for (var item of data) {
+                if (item.name.includes(searchText)||item.location.includes(searchText)|| item.company.includes(searchText)) {
+                    filteredData.push(item);
+                }
+            } 
+            renderTable(filteredData);
+        }
+        renderTable(data);
+    </script>
+</body>
+</html>
