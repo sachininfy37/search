@@ -53,7 +53,7 @@
             }
             document.body.append(ele);
         }
-        // new change
+        // new change1
 
         // comment
         function searchByUsername(name){            
@@ -61,7 +61,7 @@
             var searchText = input.value;
             var filteredData = [];
             for (var item of data) {
-                if (item.name.includes(searchText)||item.location.includes(searchText)|| item.company.includes(searchText)) {
+                if (item.name.includes(searchText) || item.age.includes(searchText) ||item.location.includes(searchText)|| item.company.includes(searchText)) {
                     filteredData.push(item);
                 }
             } 
