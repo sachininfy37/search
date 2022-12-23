@@ -1,0 +1,67 @@
+Created by:- Jordan walke (Software engineer at Facebook)
+
+ReactJs : A javaScript library for creating user interfaces, makes the development of UI easy and modular.
+
+Features of React:-
+1. Component Based Architecture
+2. Virtual Dom
+3. Unidirectional Data Flow
+4. JSX Syntex (i.e similar to XML and HTML)
+5. SEO Performance is increased using React
+
+React:-
+React is a small view library
+React covers only the rendering and event handling part
+Presentation code in JavaScript powered by JSX
+React's core size is smaller than Angular, so bit fast
+React is very flexible	Angular has less flexibility
+Great performer, since it uses Virtual DOM
+
+Angular:-
+Angular is a full framework 
+Angular provides the complete solution for front-end development
+Presentation code in HTML embedded with JavaScript expressions
+Angular being a framework contains a lot of code, resulting in longer load time
+React is very flexible	Angular has less flexibility
+Angular uses actual DOM which affects its performance
+
+Software Requirement:
+1. Node.js (version 14+)
+2. A Code Editor(Visual Studio Code)
+3. 
+
+
+Installation:-
+
+> Install node.js with version 14+ from Node.js official site
+> Run node -v in CMD to check Node.js installed
+> Install create-react-app by running the following command:
+    "npm install -g create-react-app"
+>Once the installation is done, create a React app using the below command:
+    "create-react-app my-app"
+> 
+
+
+The description of the folder structure is: 
+
+node_modules:-
+All the node module dependencies are created in this folder
+
+public:-
+This folder contains the public static assets of the application
+
+public/index.html:-
+This is the first page that gets loaded when you run the application
+
+src:-
+All application related files/folders are created in this folder
+
+src/index.js:-
+This is the entry point of the application
+
+package.json:-
+Contains the dependencies of the React application
+
+> To run the application, navigate to the folder my-app and run the command as shown below:
+D:/>my-app>npm start
+
