@@ -2,13 +2,17 @@ Created by:- Jordan walke (Software engineer at Facebook)
 
 ReactJs : A javaScript library for creating user interfaces, makes the development of UI easy and modular.
 
+1. React JS is a JavaScript library for creating user interfaces
+2. ReactJS Optimizes the DOM manipulation by writing very simple code
+3. React is used for applications where the data keeps changing very frequently
+
 Features of React:-
 1. Component Based Architecture
 2. Virtual Dom
 3. Unidirectional Data Flow
 4. JSX Syntex (i.e similar to XML and HTML)
 5. SEO Performance is increased using React
-
+-----------------------------------------------------------------------------------
 React:-
 React is a small view library
 React covers only the rendering and event handling part
@@ -29,7 +33,7 @@ Software Requirement:
 1. Node.js (version 14+)
 2. A Code Editor(Visual Studio Code)
 3. 
-
+-------------------------------------------------------------------------------
 
 Installation:-
 
@@ -40,7 +44,7 @@ Installation:-
 >Once the installation is done, create a React app using the below command:
     "create-react-app my-app"
 > 
-
+--------------------------------------------------------------------------------
 
 The description of the folder structure is: 
 
@@ -64,4 +68,207 @@ Contains the dependencies of the React application
 
 > To run the application, navigate to the folder my-app and run the command as shown below:
 D:/>my-app>npm start
+--------------------------------------------------------------------------
+File Rendering:-
+
+ReactDOM.render(<parameter 1/>, parameter 2); 
+
+ReactDOM.render method will take 2 parameters:
+
+1. 'parameter 1' is the name of the component to be rendered
+2. 'parameter 2' is the HTML node reference where the component to be rendered
+-----------------------------------------------------------------------------
+>> React files:-
+
+1. src/index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+          ReactDOM.render(
+            // First argument specifies what is being rendered
+                 <React.StrictMode>   
+                 <App />
+                 </React.StrictMode>,
+            // Second argument says where to render     
+          document.getElementById('root')
+          );​​​​​​​
+
+2. src/Index.html
+// root element is present inside index.html
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+</body>
+
+//You can render elements also using the ReactDOM.render method as shown below
+
+ReactDOM.render(<h1>Hello React!<h1/>, document.getElementById('root'));
+
+--------------------------------------------------------------------------------
+>> StrictMode:-
+
+React.StrictMode: It is a helper component which helps the developers in identifying the problems in the application.The React.StrictMode, component does not render any visible UI
+
+> Benefits of strictMode
+1. Identifying components with unsafe lifecycles
+2. Warning about legacy string ref API usage
+3. Warning about deprecated findDOMNode usage
+4. Detecting unexpected side effects
+5. Detecting legacy context API
+
+-------------------------------------------------------------------------------
+>> React Components:-
+
+1. Class based Component
+2. Functional Component
+
+>Functional Component
+ 
+• Created as a simple JavaScript function
+• It just returns the HTML elements
+
+import React from 'react';
+
+// App - The component name should be in Pascal Casing
+function App() { 
+
+return React.createElement("h1", {}, "Hello World!!!"); //helps to create an element in plain JavaScript
+}
+export default App;
+-------------------------------------------------------------------------
+In the above code, React.createElement("h1", {}, "Hello World!!!");
+
+h1 - is the HTML element to be used
+{ } - Attributes of an element can be mentioned
+"Hello World!!!" - Content to be appended to the h1 element
+export default App - App component must be exported so that it could be used in any other files
+
+
+------------------------------
+
+JSX:-
+
+1. JSX is a JavaScript syntax extension.
+2. It is a replacement for writing pure JavaScript code
+3. Functional components return JSX elements 
+4. Multiple JSX elements must be wrapped within a container element using React.Fragment or empty tags
+5. JavaScript expressions which need to be evaluated must be wrapped within curly braces
+--------------------------------------------------------------------------------------------------                       
+Conditional Rendering:-
+Render the content based on conditions
+
+In any web application, you may require to show and hide any content based on some condition. For example, if admin is logged in to an application it should display a message saying "Welcome" else it should display saying "Please Login". Similarly, displaying the list of products based on its availability.  
+
+1. JSX elements can be rendered based on condition using if-else or ternary operator
+2. List of elements can be rendered using map method
+
+function App() {
+  let element = null;
+  let isLoggedIn = false;
+  if (isLoggedIn) {
+    element = <h2>Welcome Admin</h2>;
+  } else {
+    element = <h2>Please Login</h2>;
+  }
+  return <>{element}</>;
+}
+export default App;
+
+Redering :- 
+
+1. Using ternary operator:
+
+function App() {
+  let isLoggedIn = false;
+  return {isLoggedIn || <h2>Welcome Admin</h2> : <h2>Please Login</h2>;
+}
+
+2. Using Short Circuiting: 
+
+function App() {
+    let isLoggedIn = true;
+    return (
+    			<div>
+    				{isLoggedIn && <h2>Welcome Admin</h2>}
+    				{!isLoggedIn && <h2>Please Login</h2>}
+    			</div>
+    		)
+}
+
+3. Using variables:
+
+export default App;
+function App() {
+  let element = null;
+  let isLoggedIn = false;
+  isLoggedIn
+    ? (element = <h2>Welcome Admin</h2>)
+    : (element = <h2>Please Login</h2>);​​​​​​​
+  return <>{element}</>;
+}
+export default App;
+
+
+> Rendering List using map() methode:-
+
+function App() {
+  var employees = [
+    { empId: 1234, name: "John", designation: "SE" },
+    { empId: 4567, name: "Tom", designation: "SSE" },
+    { empId: 8910, name: "Kevin", designation: "TA" },
+  ];
+  return (
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>EmpID</th>
+            <th>Name</th>
+            <th>Designation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee) => {
+            return (
+              <tr>
+                <td>{employee.empId}</td>
+                <td>{employee.name}</td>
+                <td>{employee.designation}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
+}
+export default App;
+
+// Above code will give error in console "Each child in a list should have a unique "key" prop.
+// check the render methode of 'app'.
+
+To avoide this error provide a unique key to each element in an array as shown below
+
+<tbody>
+    {employees.map(employee => {
+        return (<tr key={employee.empId}>
+            <td>{employee.empId}</td>
+            <td>{employee.name}</td>
+            <td>{employee.designation}</td>
+         </tr>)
+     })
+     }
+</tbody>
+---------------------------------------------------------------------
+
+>> Keys:-
+
+1. Keys are used by React to identify the items that are added, removed, or modified. Keys should be    provided to the elements inside the array to provide a unique identity.
+
+2. Keys should be unique and most commonly the ID’s of the data are used as keys 
+
 
