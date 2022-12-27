@@ -271,4 +271,70 @@ To avoide this error provide a unique key to each element in an array as shown b
 
 2. Keys should be unique and most commonly the ID’s of the data are used as keys 
 
+----------------------------------------------------------------------
+
+>> State:-
+
+State is a javaScript object used to manage data of an Application
+
+>> useState():-
+useState() is a function which takes ‘initialState’ as the initial value for any state variable and returns 2 values.
+
+1. useState hook is used to associate state with component.
+2. It is used to add or initialize state value within functional
+
+Ex.  
+     const [count, setCount] = useState(0); 
+    // Here count is state variable and setCount is a function to update state count.
+3. Whenever state(i.e count) is updated, the component is re-rendered and updated value is displayed on UI 
+4. React remembers the current value(bCz of V. DOM) of state between re-renders and provides the updated value to the function.
+5. states are mutable
+
+Ex. 
+
+import {useState} from 'react';
+
+function App() {
+  const [name,setName] = useState("Jack") 
+
+// Here useState() hook helps to set the initial value as "Jack".
+//‘name’ is the state of the component ‘App’.
+
+  return (
+    <div>
+      Your Name is: {name}<br/>
+      <button onClick={()=>setName("Tom")}>Change</button>  
+//When user clicks on the button, click event is fired and the value of ‘name’ state is updated to 'Tom' through setName method.
+
+    </div>
+  );
+}
+export default App;
+
+
+Ex. state update using event handler methode
+
+import {useState} from 'react';
+
+function App() {
+  const [name,setName] = useState("Jack")
+
+   // event handler methode
+    const handleChange = () => { 
+      setName("Jill")
+    }
+  return (
+    <div>
+      Your Name is: {name}<br/>    
+      <button onClick={handleChange}>Change</button>
+    </div>
+  );
+}
+export default App;
+
+
+>> Props:-
+
+
+
 
