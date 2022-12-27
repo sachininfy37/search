@@ -165,7 +165,7 @@ In any web application, you may require to show and hide any content based on so
 
 1. JSX elements can be rendered based on condition using if-else or ternary operator
 2. List of elements can be rendered using map method
-
+kjhdhkfk
 function App() {
   let element = null;
   let isLoggedIn = false;
